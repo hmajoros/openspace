@@ -22,13 +22,13 @@ class User(db.Model, UserMixin):
         self.user_password = generate_password_hash(user_password)
     
     def is_active(self):
-        return self.active
+        return True
 
     def is_authenticated(self):
-        return True;
+        return True
 
     def is_anonymous(self):
-        return False;
+        return False
 
     def check_password(self, password):
         return check_password_hash(self.user_password, password)
