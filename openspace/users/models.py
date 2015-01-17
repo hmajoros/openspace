@@ -12,9 +12,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255))
 
     def __init__(self, user_id=None, user_name=None, user_password=None, first_name=None, last_name=None, email=None):
-        self.active = False
+        self.active = True
         self.auth = False
-        
         self.user_id = user_id
         self.user_name = user_name
         self.first_name = first_name
@@ -22,12 +21,14 @@ class User(db.Model, UserMixin):
         self.email = email
         self.user_password = generate_password_hash(user_password)
     
-
     def is_active(self):
         return self.active
 
     def is_authenticated(self):
-        return self.auth
+        return True;
+
+    def is_anonymous(self):
+        return False;
 
     def check_password(self, password):
         return check_password_hash(self.user_password, password)
@@ -43,12 +44,6 @@ class User(db.Model, UserMixin):
 
     def get_user_password(self):
         return self.user_password
-
-    def set_auth(self, status):
-        self.auth = status
-
-    def set_active(self, status):
-        self.active = status
 
     def get_id(self):
         return self.user_id

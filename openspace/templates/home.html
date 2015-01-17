@@ -8,7 +8,9 @@
 
 
 <div class="cover">
+  {% if user.is_anonymous() %}
   <div id="signUpButton">SIGN UP</div>
+  {% endif %}
 </div> <!-- image added in js -->
 
 <div class="header">
@@ -17,8 +19,13 @@
     <div class="header-nav-item"><a href="/try">Try</a></div>
     <div class="header-nav-item"><a href="/create">Create</a></div>
     <div class="header-nav-item"><a href="/browse">Browse</a></div>
+    {% if user.is_anonymous() %}
     <div class="header-nav-item pull-right"><a href="/signup">Sign Up</a></div>
     <div class="header-nav-item pull-right"><a href="/login">Login</a></div>
+    {% endif %}
+    {% if user.is_authenticated() %}
+    <div class="header-nav-item pull-right"><a href="/logout">Logout</a></div>
+    {% endif %}
   </div>
 </div>
 
@@ -49,12 +56,7 @@
 
 <div class="row">
 <!-- insert some visual break here -->
-{{ user.is_authenticated() }}
 
-
-{% if user.is_authenticated() %}
-<p>Hi</p>
-{% endif %}
 
 
 
