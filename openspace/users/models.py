@@ -1,26 +1,33 @@
 from werkzeug import generate_password_hash, check_password_hash
+from flask_login import UserMixin
 
-class User:
-    # user_id = db.Column(db.Integer, primary_key=True)
-    # user_name = db.Column(db.String(120), unique=True)
-    # user_password = db.Column(db.String(120))
-    # first_name = db.Column(db.String(120))
-    # last_name = db.Column(db.String(120))
+from openspace import db
 
-    def __init__(self, user_name=None, user_password=None, first_name=None, last_name=None, email=None):
+class User(db.Model, UserMixin):
+    user_id = db.Column(db.Integer, primary_key=True)
+    user_name = db.Column(db.String(255), unique=True)
+    user_password = db.Column(db.String(255))
+    first_name = db.Column(db.String(255))
+    last_name = db.Column(db.String(255))
+    email = db.Column(db.String(255))
+
+    def __init__(self, user_id=None, user_name=None, user_password=None, first_name=None, last_name=None, email=None):
         self.active = False
+        self.auth = False
         
+        self.user_id = user_id
         self.user_name = user_name
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
         self.user_password = generate_password_hash(user_password)
-        
-    # def set_password(self, password):
-    #     self.user_password = generate_password_hash(password)
     
+
     def is_active(self):
         return self.active
+
+    def is_authenticated(self):
+        return self.auth
 
     def check_password(self, password):
         return check_password_hash(self.user_password, password)
@@ -36,3 +43,14 @@ class User:
 
     def get_user_password(self):
         return self.user_password
+
+    def set_auth(self, status):
+        self.auth = status
+
+    def set_active(self, status):
+        self.active = status
+
+    def get_id(self):
+        return self.user_id
+
+
