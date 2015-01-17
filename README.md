@@ -11,3 +11,7 @@
 
 ## Tips and Tricks
 *Tip:* __[How to stop crying](http://www.hahastop.com/pictures/Flick_Off_Baby.jpg)__
+
+
+### HOW TO RUN ###
+```foreman run python run.py```
