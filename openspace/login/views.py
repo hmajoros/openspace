@@ -25,13 +25,18 @@ def auth():
         conn = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database=db_name)
         cursor = conn.cursor()
 
-        query = ("SELECT user_name, user_password FROM users WHERE user_name = '%s'")
-        
-        cursor.execute(query, request.form['username'])
+        query = ("SELECT user_name, user_password FROM users WHERE user_name = %(user_name)s")
+        cursor.execute(query, { 'user_name': request.form['username'] })
+        row = cursor.fetchone()
 
-        if cursor is not None:
-            for (user_name, user_password) in cursor:
-                u = User(user_name, user_password)
+        if row is not None:
+            if check_password_hash(row[1], request.form['password']):
+                return redirect(url_for('home.index'))
+
+        # hashpass = row['user_password']
+
+        # if check_password_hash(hashpass, request.form['password']):
+        #     return redirect(url_for('home.index'))
 
         # TODO: Nothing works!@@~~~!~!@~!
         # need an if statement here to check if the user password in database matches password submitted in form
