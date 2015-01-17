@@ -1,2 +1,17 @@
 // another dummy comment
 // delete me later
+
+@import "funcs.less";
+@import "opts.less";
+
+.hello {
+	position: absolute;
+	margin: auto;
+	font-size: 40pt;
+	letter-spacing: 10px;
+	
+	top: 50%;
+	left: 50%;
+	
+	.prefixed(transform, translate(-50%, -50%));
+}

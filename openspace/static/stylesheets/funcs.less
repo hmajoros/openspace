@@ -1,0 +1,62 @@
+// Prefix Functions
+.prefixed(@property, @value) {
+  & when (@webkit = true) {
+    -webkit-@{property}: @value;
+  }
+
+  & when (@moz = true) {
+      -moz-@{property}: @value;
+  }
+
+  & when (@ms = true) {
+      -ms-@{property}: @value;
+  }
+
+  & when (@o = true) {
+      -o-@{property}: @value;
+  }
+
+  @{property}: @value;
+}
+
+// prefix keyframes
+.keyframes(@name; @content) {
+  & when (@webkit = true) {
+    @-webkit-keyframes @name {
+      @content();
+    }
+  }
+
+  & when (@moz = true) {
+      @-moz-keyframes @name {
+          @content();
+      }
+  }
+
+  & when (@ms = true) {
+      @-ms-keyframes @name {
+          @content();
+      }
+  }
+
+  & when (@o = true) {
+      @-o-keyframes @name {
+          @content();
+      }
+  }
+
+  @keyframes @name {
+    @content();
+  }
+}
+
+// Disable Selection
+
+.disableSelection {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}    
