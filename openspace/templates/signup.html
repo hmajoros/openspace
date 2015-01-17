@@ -1,10 +1,15 @@
 {% extends "base.html" %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
+{% endblock %}
+
 {% block content %}
-<form class="form-horizontal" action="/signup/create" method="POST">
+<div id="center">
+<form name="signUpForm" class="form-horizontal" action="/signup/create" onsubmit="return validateForm()" method="POST">
   <fieldset>
     <div id="legend">
-      <legend class="">Register</legend>
+      <legend class="">Sign Up</legend>
     </div>
     <div class="control-group">
       <!-- Username -->
@@ -28,14 +33,14 @@
       <!-- Last Name -->
       <label class="control-label"  for="lastname">Last Name</label>
       <div class="controls">
-        <input type="text" id="lastname" name="lastname" placeholder="" class="input-xlarge">
+        <input type="text" id="lastname" name="lastname" placeholder="" class="input-xlarge" required>
         <p class="help-block">Last name can contain any letters</p>
       </div>
     </div>
 
     <div class="control-group">
       <!-- E-mail -->
-      <label class="control-label" for="email">E-mail</label>
+      <label class="control-label" for="email">Email</label>
       <div class="controls">
         <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
         <p class="help-block">Please provide your E-mail</p>
@@ -64,9 +69,14 @@
       <!-- Button -->
       <div class="controls">
           <input type="submit" class="btn btn-success"></input>
+          <button type="cancel" onclick="javascript:window.history.back();" class="btn btn-fail">Cancel</button>
       </div>
     </div>
   </fieldset>
 </form>
+</div>
+{% endblock %}
 
+{% block js %}
+<script src="/static/js/signup.js"></script>
 {% endblock %}

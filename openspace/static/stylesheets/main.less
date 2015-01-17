@@ -48,6 +48,43 @@
     }
 }
 
+#signUpButton {
+    .disableSelection;
+    position: absolute;
+    top: 175px;
+    left: 50%;
+    .prefixed(transform, translateX(-50%));
+
+    text-align: center;
+    line-height: 75px;
+    font-size: 15pt;
+    letter-spacing: 5px;
+
+    height: 75px;
+    width: 250px;
+
+    border-radius: 10px;
+
+    background-color: #4749FF;
+    color: white;
+
+    &:hover {
+        cursor: pointer;
+        background-color: #3636C8;
+    }
+
+    &:active {
+        background-color: #292A9B;
+    }
+}
+
+#center {
+    margin-top: 50px;
+    position: absolute;
+    left: 50%;
+    .prefixed(transform, translateX(-50%));
+}
+
 .row {
     padding: 32px;
 }

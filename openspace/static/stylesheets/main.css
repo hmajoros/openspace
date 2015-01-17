@@ -40,6 +40,48 @@
 .header .header-nav .header-nav-item.pull-right a {
   color: white;
 }
+#signUpButton {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  top: 175px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+  text-align: center;
+  line-height: 75px;
+  font-size: 15pt;
+  letter-spacing: 5px;
+  height: 75px;
+  width: 250px;
+  border-radius: 10px;
+  background-color: #4749FF;
+  color: white;
+}
+#signUpButton:hover {
+  cursor: pointer;
+  background-color: #3636C8;
+}
+#signUpButton:active {
+  background-color: #292A9B;
+}
+#center {
+  margin-top: 50px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
 .row {
   padding: 32px;
 }
