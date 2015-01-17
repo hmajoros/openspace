@@ -19,6 +19,11 @@ def create():
         firstname = request.form['firstname']
         lastname = request.form['lastname']
 
+        userExists = doesUserExist(username)
+
+        if userExists:
+            return redirect(url_for('signup.index'))
+
         db_user = os.environ['DB_USER']
         db_pass = os.environ['DB_PASSWORD']
         db_host = os.environ['DB_HOST']
@@ -42,3 +47,26 @@ def create():
 
         return redirect(url_for('home.index'))
     return redirect(url_for('signup.index'))
+
+def doesUserExist(username):
+    db_user = os.environ['DB_USER']
+    db_pass = os.environ['DB_PASSWORD']
+    db_host = os.environ['DB_HOST']
+    db_name = os.environ['DB_NAME']
+
+    conn = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database=db_name)
+    cursor = conn.cursor()
+
+    query = "SELECT user_name FROM users"
+
+    cursor.execute(query)
+
+    users = [item[0].encode("utf-8") for item in cursor.fetchall()]
+    print users
+
+    if username in users:
+        cursor.close()
+        conn.close()
+        return True
+
+    return False

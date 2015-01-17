@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form class="form-horizontal" action="/signup/create" method="POST">
+<form name="signUpForm" class="form-horizontal" action="/signup/create" onsubmit="return validateForm()" method="POST">
   <fieldset>
     <div id="legend">
       <legend class="">Register</legend>
@@ -35,7 +35,7 @@
 
     <div class="control-group">
       <!-- E-mail -->
-      <label class="control-label" for="email">E-mail</label>
+      <label class="control-label" for="email">Email</label>
       <div class="controls">
         <input type="text" id="email" name="email" placeholder="" class="input-xlarge">
         <p class="help-block">Please provide your E-mail</p>
@@ -69,4 +69,8 @@
   </fieldset>
 </form>
 
+{% endblock %}
+
+{% block js %}
+<script src="/static/js/signup.js"></script>
 {% endblock %}
