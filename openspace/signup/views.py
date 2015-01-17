@@ -7,4 +7,3 @@ def index():
     return render_template('signup.html', title='signup')
 
 
-
