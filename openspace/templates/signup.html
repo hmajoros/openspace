@@ -11,6 +11,12 @@
     <div id="legend">
       <legend class="">Sign Up</legend>
     </div>
+    <div class="alreadyUsed" id="usernameTaken">
+      Username is already taken.
+    </div>
+    <div class="alreadyUsed" id="emailTaken">
+      Email already in use.
+    </div>
     <div class="control-group">
       <!-- Username -->
       <label class="control-label"  for="username">Username</label>
@@ -69,7 +75,7 @@
       <!-- Button -->
       <div class="controls">
           <input type="submit" class="btn btn-success"></input>
-          <button type="cancel" onclick="javascript:window.history.back();" class="btn btn-fail">Cancel</button>
+          <button onclick='javascript:window.location.href="/";' class="btn">Cancel</button>
       </div>
     </div>
   </fieldset>

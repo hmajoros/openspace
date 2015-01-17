@@ -28,13 +28,13 @@ def create():
         userExists = doesUserExist(username)
 
         if userExists:
-            script = Markup('alert("User name is already in use you incompetent fuck.")')
+            script = Markup('$(function() { $("#usernameTaken").addClass("visible"); });')
             return render_template("signup.html", title='Sign Up', injectedJS=script)
 
         emailExists = doesEmailExist(email)
 
         if emailExists:
-            script = Markup('alert("Email already has an account you username whore.")')
+            script = Markup('$(function() { $("#emailTaken").addClass("visible"); });')
             return render_template("signup.html", title='Sign Up', injectedJS=script)
 
         db_user = os.environ['DB_USER']
