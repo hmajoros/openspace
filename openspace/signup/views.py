@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, request, redirect, url_for
+from flask import render_template, Blueprint, request, redirect, url_for, Markup
 from werkzeug import generate_password_hash
 import os
 import mysql.connector
@@ -7,7 +7,7 @@ signup = Blueprint('signup', __name__, url_prefix='/signup')
 
 @signup.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('signup.html', title='signup')
+    return render_template('signup.html', title='Sign Up')
 
 @signup.route('/create', methods=['GET', 'POST'])
 def create():
@@ -22,7 +22,8 @@ def create():
         userExists = doesUserExist(username)
 
         if userExists:
-            return redirect(url_for('signup.index'))
+            script = Markup('alert("User name is already in use you incompetent fuck.")')
+            return render_template("signup.html", title='Sign Up', injectedJS=script)
 
         db_user = os.environ['DB_USER']
         db_pass = os.environ['DB_PASSWORD']
@@ -69,4 +70,4 @@ def doesUserExist(username):
         conn.close()
         return True
 
-    return False
+    return False    

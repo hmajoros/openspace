@@ -4,7 +4,7 @@
 <form name="signUpForm" class="form-horizontal" action="/signup/create" onsubmit="return validateForm()" method="POST">
   <fieldset>
     <div id="legend">
-      <legend class="">Register</legend>
+      <legend class="">Sign Up</legend>
     </div>
     <div class="control-group">
       <!-- Username -->
@@ -28,7 +28,7 @@
       <!-- Last Name -->
       <label class="control-label"  for="lastname">Last Name</label>
       <div class="controls">
-        <input type="text" id="lastname" name="lastname" placeholder="" class="input-xlarge">
+        <input type="text" id="lastname" name="lastname" placeholder="" class="input-xlarge" required>
         <p class="help-block">Last name can contain any letters</p>
       </div>
     </div>
