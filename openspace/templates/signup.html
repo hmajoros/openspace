@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/stylesheets/main.css" type="text/css">
+{% endblock %}
+
 {% block content %}
+<div id="center">
 <form name="signUpForm" class="form-horizontal" action="/signup/create" onsubmit="return validateForm()" method="POST">
   <fieldset>
     <div id="legend">
@@ -64,11 +69,12 @@
       <!-- Button -->
       <div class="controls">
           <input type="submit" class="btn btn-success"></input>
+          <input type="cancel" onclick="javascript:window.history.back();" class="btn btn-fail">Cancel</input>
       </div>
     </div>
   </fieldset>
 </form>
-
+</div>
 {% endblock %}
 
 {% block js %}
