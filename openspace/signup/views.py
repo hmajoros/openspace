@@ -25,6 +25,18 @@ def create():
         firstname = request.form['firstname']
         lastname = request.form['lastname']
 
+        userExists = doesUserExist(username)
+
+        if userExists:
+            script = Markup('alert("User name is already in use you incompetent fuck.")')
+            return render_template("signup.html", title='Sign Up', injectedJS=script)
+
+        emailExists = doesEmailExist(email)
+
+        if emailExists:
+            script = Markup('alert("Email already has an account you username whore.")')
+            return render_template("signup.html", title='Sign Up', injectedJS=script)
+
         db_user = os.environ['DB_USER']
         db_pass = os.environ['DB_PASSWORD']
         db_host = os.environ['DB_HOST']
@@ -48,3 +60,52 @@ def create():
 
         return redirect(url_for('home.index'))
     return redirect(url_for('signup.index'))
+
+def doesUserExist(username):
+    db_user = os.environ['DB_USER']
+    db_pass = os.environ['DB_PASSWORD']
+    db_host = os.environ['DB_HOST']
+    db_name = os.environ['DB_NAME']
+
+    conn = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database=db_name)
+    cursor = conn.cursor()
+
+    query = "SELECT user_name FROM users"
+
+    cursor.execute(query)
+
+    users = [item[0].encode("utf-8") for item in cursor.fetchall()]
+    print users
+
+    if username in users:
+        cursor.close()
+        conn.close()
+        return True
+
+    cursor.close()
+    conn.close()
+    return False
+
+def doesEmailExist(email):
+    db_user = os.environ['DB_USER']
+    db_pass = os.environ['DB_PASSWORD']
+    db_host = os.environ['DB_HOST']
+    db_name = os.environ['DB_NAME']
+
+    conn = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database=db_name)
+    cursor = conn.cursor()
+
+    query = "SELECT email FROM users"
+
+    cursor.execute(query)
+
+    emails = [item[0].encode("utf-8") for item in cursor.fetchall()]
+
+    if email in emails:
+        cursor.close()
+        conn.close()
+        return True
+
+    cursor.close()
+    conn.close()
+    return False
