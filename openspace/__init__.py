@@ -23,3 +23,7 @@ app.register_blueprint(logout)
 # setup signup blueprint
 from openspace.signup.views import signup
 app.register_blueprint(signup)
+
+# create page
+from openspace.create.views import create
+app.register_blueprint(create)
