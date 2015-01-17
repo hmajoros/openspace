@@ -10,12 +10,16 @@ app = Flask(__name__)
 
 # setup home blueprint
 from openspace.home.views import home
-app.register_blueprint(home) 
+app.register_blueprint(home)
 
 # setup login blueprint
 from openspace.login.views import login
 app.register_blueprint(login)
- 
-# setup logout blureprint
+
+# setup logout blueprint
 from openspace.logout.views import logout
 app.register_blueprint(logout)
+
+# setup signup blueprint
+from openspace.signup.views import signup
+app.register_blueprint(signup)
