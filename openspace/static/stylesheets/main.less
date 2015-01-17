@@ -4,14 +4,50 @@
 @import "funcs.less";
 @import "opts.less";
 
-.hello {
-	position: absolute;
-	margin: auto;
-	font-size: 40pt;
-	letter-spacing: 10px;
-	
-	top: 50%;
-	left: 50%;
-	
-	.prefixed(transform, translate(-50%, -50%));
+.cover {
+    width: 100%;
+    min-height: 400px; 
+    background-image: url('/static/images/home.jpeg');
+    background-size: cover;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    height: 64px;
+    top: 0;
+    background-color: rgba(0, 0, 0, .1);
+
+    & .header-nav {
+
+
+        & .header-nav-item {
+            display: block;
+            float: left;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, .20);
+            }
+             
+            & a {
+                padding: 24px;
+                color: #2f2f2f;
+                font-size: 18px;
+                line-height: 64px;
+                text-decoration: none;
+                font-family: "Gotham Medium";
+            }
+
+            &.pull-right {
+                background-color: rgba(0,0,0, .3);
+                & a {
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+.row {
+    padding: 32px;
 }

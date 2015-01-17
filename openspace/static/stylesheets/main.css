@@ -1,1 +1,45 @@
-.disableSelection{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.hello{position:absolute;margin:auto;font-size:40pt;letter-spacing:10px;top:50%;left:50%;-webkit-transform:translate(-50%, -50%);-moz-transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);-o-transform:translate(-50%, -50%);transform:translate(-50%, -50%)}
+.disableSelection {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.cover {
+  width: 100%;
+  min-height: 400px;
+  background-image: url('/static/images/home.jpeg');
+  background-size: cover;
+}
+.header {
+  position: absolute;
+  width: 100%;
+  height: 64px;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.header .header-nav .header-nav-item {
+  display: block;
+  float: left;
+}
+.header .header-nav .header-nav-item:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.header .header-nav .header-nav-item a {
+  padding: 24px;
+  color: #2f2f2f;
+  font-size: 18px;
+  line-height: 64px;
+  text-decoration: none;
+  font-family: "Gotham Medium";
+}
+.header .header-nav .header-nav-item.pull-right {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.header .header-nav .header-nav-item.pull-right a {
+  color: white;
+}
+.row {
+  padding: 32px;
+}

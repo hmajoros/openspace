@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link href="/static/stylesheets/main.css" rel="stylesheet">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    {% block stylesheets %}{% endblock %}
+    <title>{{ title }} - Open Space</title>
+  </head>
+  <body>
+   {% block content %}{% endblock %} 
+
+   {% block js %}{% endblock %}
+  </body>
+</html>
