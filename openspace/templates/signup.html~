@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<form class="form-horizontal" action="/signup/create" method="POST">
+<form class="form-horizontal" action='' method="POST">
   <fieldset>
     <div id="legend">
       <legend class="">Register</legend>
@@ -10,7 +10,7 @@
       <!-- Username -->
       <label class="control-label"  for="username">Username</label>
       <div class="controls">
-        <input type="text" id="username" name="username" class="input-xlarge">
+        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
         <p class="help-block">Username can contain any letters or numbers, without spaces</p>
       </div>
     </div>
@@ -63,7 +63,7 @@
     <div class="control-group">
       <!-- Button -->
       <div class="controls">
-          <input type="submit" class="btn btn-success"></input>
+        <button class="btn btn-success">Register</button>
       </div>
     </div>
   </fieldset>
