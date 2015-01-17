@@ -50,8 +50,13 @@
 </section>
 <div class="row">
 <!-- insert some visual break here -->
+{{ user.is_authenticated() }}
 
-<p>{{ data }}</p>
+
+{% if user.is_authenticated() %}
+<p>Hi</p>
+{% endif %}
+
 
 
 </div>

@@ -1,13 +1,19 @@
-from flask import render_template, Blueprint, request, redirect, url_for, Markup
+from flask import render_template, Blueprint, request, redirect, url_for, g, session
 from werkzeug import generate_password_hash
 import os
 import mysql.connector
+from flask.ext.login import current_user
 
 signup = Blueprint('signup', __name__, url_prefix='/signup')
 
+@signup.before_request
+def before_request():
+    g.user = current_user
+
+
 @signup.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('signup.html', title='Sign Up')
+    return render_template('signup.html', title='signup', user=current_user)
 
 @signup.route('/create', methods=['GET', 'POST'])
 def create():
