@@ -3,16 +3,22 @@
 
 @import "funcs.less";
 @import "opts.less";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+}
 
 .cover {
     width: 100%;
-    min-height: 400px; 
+    min-height: 400px;
     background-image: url('/static/images/home.jpeg');
     background-size: cover;
 }
 
 .header {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 64px;
     top: 0;
@@ -24,6 +30,7 @@
         & .header-nav-item {
             display: block;
             float: left;
+            overflow: hidden;
 
             &:hover {
                 background-color: rgba(0, 0, 0, .20);
@@ -35,7 +42,6 @@
                 font-size: 18px;
                 line-height: 64px;
                 text-decoration: none;
-                font-family: "Gotham Medium";
             }
 
             &.pull-right {
@@ -51,9 +57,11 @@
 #signUpButton {
     .disableSelection;
     position: absolute;
-    top: 175px;
+    top: 250px;
     left: 50%;
     .prefixed(transform, translateX(-50%));
+
+    opacity: 0.7;
 
     text-align: center;
     line-height: 75px;
@@ -78,13 +86,46 @@
     }
 }
 
+.visible {
+    visibility: visible !important;
+    height: 50px !important;
+}
+
 #center {
-    margin-top: 50px;
+    margin-top: 20px;
     position: absolute;
     left: 50%;
     .prefixed(transform, translateX(-50%));
 }
 
 .row {
+    position: relative;
     padding: 32px;
+}
+
+.logo {
+    position: absolute;
+    top: 100px;
+    height: 100px;
+    width: 100px;
+    left: 50%;
+    .prefixed(transform, translateX(-50%));
+
+    & img {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.alreadyUsed {
+    text-align: center;
+    line-height: 50px;
+    font-size: 15pt;
+    width: 300px;
+    height: 0px;
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+
+    visibility: hidden;
 }
