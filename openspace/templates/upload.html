@@ -73,6 +73,12 @@ $('.CodeMirror').each(function(i, el){
     el.CodeMirror.refresh();
 });
 
+var $areas = $('textarea');
+$areas[0].attr("name", "html");
+$areas[1].attr('name', 'css');
+$areas[2].attr('name', 'js');
+
+
 
 </script>
 {% endblock %}
