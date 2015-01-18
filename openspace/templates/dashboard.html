@@ -12,7 +12,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">Set up your page</h4>
       </div>
       <form action="/dashboard/create_page" method="POST">
         <div class="modal-body">
@@ -64,7 +64,12 @@
 <div class="row">
     {% for site in sites %}
     <div class="col-md-4">
-        <div class="site"><a href="/editor/?page_id={{site.page_id}}">{{ site.p_name }} built with template {{ site.t_name }}</div>
+    <a href="/editor/?page_id={{site.page_id}}">
+        <div class="site">
+        <div class="siteName">{{ site.p_name }}</div>
+        <div class="builtWith">built with the "{{ site.t_name }}" template</div>
+        </div>
+    </a>
     </div>
     {% endfor %}
 </div>
