@@ -30,9 +30,24 @@ cursor = cnx.cursor()
 # cursor.execute(createPagesTable)
 # cursor.execute(createVariablesTable)
 
-query = ("SHOW TABLES")
-cursor.execute(query)
-print cursor.fetchall()
+template = """
+   Hello, {{ name }}! This is my basic template. Let's see the page title, its {{ title }}. How Fascinating! Fuck this shit, {{ variableName }}. 
+"""
+
+# query = ("INSERT INTO templates (template_id, template_content, template_name, author_id) VALUES (%s, %s, %s, %s)")
+# values = (1, template, 'Cool Template', 1)
+# cursor.execute(query, values)
+# cnx.commit()
+
+# query = ("INSERT INTO pages (page_id, user_id, template_id) VALUES (%s, %s, %s)")
+# values = (1, 1, 1)
+# cursor.execute(query, values)
+# cnx.commit()
+
+# query = ("SELECT * FROM templates")
+# cursor.execute(query)
+# row = [item[1].encode("utf-8") for item in cursor.fetchall()]
+# print row
 
 cursor.close()
 cnx.close()
