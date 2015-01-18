@@ -8,10 +8,12 @@
 
 
 <div class="cover">
+  <div class="fuckingContainer">
   {% if user.is_anonymous() %}
   <div id="signUpButton">SIGN UP</div>
   {% endif %}
   <div class="logo"><img src="/static/img/stroke_logo.png" /></div>
+  </div>
 </div> <!-- image added in js -->
 
 <div class="header">
@@ -33,28 +35,34 @@
 
 <div class="logo"></div>
 <section>
-<div class="row">
-<!-- insert most important content here -->
-  <div class="col-md-6 text-center">
-    <h3>What We Do</h3>
-    Some text in here blah blah blah blah blah
-    Some text in here blah blah blah blah blah
-    Some text in here blah blah blah blah blah
-    Some text in here blah blah blah blah blah
-    Some text in here blah blah blah blah blah
-    Some text in here blah blah blah blah blah
-  </div>
-  <div class="col-md-6 text-center">
-    <h3>Why You Care</h3>
-    Some text in here blah blah blah blah blah
-    Some text in here blah blah blah blah blah
-    Some text in here blah blah blah blah blah
-    Some text in here blah blah blah blah blah
-    Some text in here blah blah blah blah blah
-    Some text in here blah blah blah blah blah
-    Some text in here blah blah blah blah blah
-  </div>
+  <div class="row">
+  <!-- insert most important content here -->
+    <div class="col-md-6 text-justify">
+      <h3 class="text-center">What We Do</h3>
+      You want a website, and you want that website fast, free,
+      and easy. Welcome to Open Space, you're in the right place.
+      We help you build a great looking site from a variety of
+      community built templates, for <em>free</em>. Yes, you read that
+      correctly, totally free. Why? Because we can. We hope you love
+      Open Space, and don't forget to share it with all your friends so
+      that they can build awesome sites with us too. Better yet, if you
+      are a website designer, submit a template!
+    </div>
+    <div class="col-md-6 text-justify">
+      <h3 class="text-center">Why You Care</h3>
+      Websites can be hard to build nowadays. With tens, hundreds,
+      even thousands of languages available for the web, it can be 
+      confusing to new developers. HTML, CSS, JavaScript, Python, PHP,
+      Node.js, Socket.io, SQL, and many more are just a few technologies
+      and languages that are used often on the web, but not everyone has
+      time to learn them all. So we did for you, and made it as simple as
+      entering information on a page in order to create a beautiful website.
+      Have fun.
+    </div>
 </div>
+</section>
+<section>
+<div class="footer"></div>
 </section>
 <div class="row">
 <!-- insert some visual break here -->
