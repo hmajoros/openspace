@@ -21,8 +21,8 @@ def loadUser(user_id):
     conn = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database=db_name)
     cursor = conn.cursor()
     query = ("SELECT user_id, user_name, user_password, first_name, last_name, email FROM users WHERE user_id = %(user_id)s")
-    cursor.execute(query, { 'user_id' : user_id });
-
+    cursor.execute(query, { 'user_id' : user_id })
+    
     row = cursor.fetchone()
     if row is not None:
         u = User(row[0], row[1], row[2], row[3], row[4], row[5])
@@ -52,19 +52,18 @@ def auth():
         query = ("SELECT user_id, user_name, user_password, first_name, last_name, email FROM users WHERE user_name = %(user_name)s")
         cursor.execute(query, { 'user_name': request.form['username'] })
         row = cursor.fetchone()
-        status = True
 
         if row is not None:
             u = User(row[0], row[1], row[2], row[3], row[4], row[5])
             if check_password_hash(row[2], request.form['password']):
                 # log us in
-                print "print before"
+                # print "print before"
 
-                print u.is_authenticated()
+                # print u.is_authenticated()
 
                 login_user(u)
 
-                print "we're logged in!"
+                # print "we're logged in!"
                 return redirect(url_for('home.index'))
 
         cursor.close()

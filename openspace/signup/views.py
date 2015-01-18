@@ -1,8 +1,9 @@
-from flask import render_template, Blueprint, request, redirect, url_for, g, session
+from flask import render_template, Blueprint, request, redirect, url_for, g, session, Markup
 from werkzeug import generate_password_hash
 import os
 import mysql.connector
-from flask.ext.login import current_user
+from openspace.login.views import loadUser
+from flask.ext.login import current_user, login_user
 
 signup = Blueprint('signup', __name__, url_prefix='/signup')
 
@@ -54,6 +55,17 @@ def create():
 
         cursor.execute(add_user, user)
         conn.commit()
+
+        query = ("SELECT user_id, user_name FROM users WHERE user_name = %(user_name)s")
+        cursor.execute(query, { 'user_name' : username })
+        row = cursor.fetchone()
+        user_id = row[0]
+        
+        u = loadUser(user_id)
+
+
+        if u is not None:
+            login_user(u)
 
         cursor.close()
         conn.close()
