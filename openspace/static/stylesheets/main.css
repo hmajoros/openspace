@@ -13,12 +13,24 @@
   line-height: 1.428 !important;
 }
 .cover {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   width: 100%;
   min-height: 400px;
   background-image: url('/static/images/home.jpeg');
   background-size: cover;
 }
 .header {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   position: fixed;
   width: 100%;
   height: 64px;
@@ -138,10 +150,54 @@
   border-radius: 10px;
   visibility: hidden;
 }
-.footer {
+.randomShitIGuessIDontKnow {
+  margin-top: 50px;
   height: 600px;
   width: 100%;
   background-color: #512da8;
+  overflow: hidden;
+}
+#randomShitContainer {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+}
+.randomShitContent {
+  overflow: hidden;
+  display: inline-block;
+  height: 350px;
+  width: 350px;
+  margin: 10px;
+  vertical-align: top;
+  background-color: black;
+}
+.randomShitLogo {
+  margin-top: 45px;
+  height: 80px;
+  width: 80px;
+}
+.randomShitLogo img {
+  height: 100%;
+  width: 100%;
+}
+.randomShitTitle {
+  margin-top: 20px;
+  font-size: 20pt;
+  font-weight: 300;
+  letter-spacing: 5px;
+  color: #979694;
+}
+.randomShitDescription {
+  font-size: 12pt;
+  max-width: 300px;
+  margin-top: 30px;
+  color: #979694;
+}
+.randomShitDescription a {
+  color: black;
+  text-decoration: none;
 }
 .upload-drop-zone {
   height: 200px;
