@@ -10,6 +10,12 @@
 * {
   font-family: 'Open Sans', sans-serif;
   overflow-x: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .cover {
   width: 100%;
@@ -68,15 +74,15 @@
   height: 75px;
   width: 250px;
   border-radius: 10px;
-  background-color: #4749FF;
+  background-color: #673ab7;
   color: white;
 }
 #signUpButton:hover {
   cursor: pointer;
-  background-color: #3636C8;
+  background-color: #512da8;
 }
 #signUpButton:active {
-  background-color: #292A9B;
+  background-color: #4527a0;
 }
 .visible {
   visibility: visible !important;
@@ -111,6 +117,9 @@
 .logo img {
   height: 100%;
   width: 100%;
+}
+h3 {
+  line-height: 50px;
 }
 .alreadyUsed {
   text-align: center;
