@@ -42,6 +42,32 @@ def index():
     return render_template('editor.html', title='Editor', user=current_user, pages=pages, edit=False)
 
 
+@editor.route('/save', methods=['GET', 'POST'])
+@login_required
+def save():
+    if request.method == 'POST':
+        db_user = os.environ['DB_USER']
+        db_pass = os.environ['DB_PASSWORD']
+        db_host = os.environ['DB_HOST']
+        db_name = os.environ['DB_NAME']
+
+        conn = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database=db_name)
+        cursor = conn.cursor()
+        query = ("UPDATE templates t, pages p "
+                 "SET template_html = %(html)s, template_css = %(css)s, template_js = %(js)s "
+                 "WHERE p.page_id = %(page_id)s")
+
+        cursor.execute(query, { 'html' : request.form['html'], 'css' : request.form['css'], 
+                                'js' : request.form['js'], 'page_id' : request.form['page_id'] })
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+        return redirect(url_for('editor.index'))
+    return redirect(url_for('home.index'))
+
+
+
 def getPages():
     db_user = os.environ['DB_USER']
     db_pass = os.environ['DB_PASSWORD']

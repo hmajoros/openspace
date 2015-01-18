@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="/static/stylesheets/editor.css">
     <link href="/static/fa/css/font-awesome.min.css" rel="stylesheet">
     <!-- once again probably a bad way but i cant think of anything else -->
-    <style>{{ css|safe }}</style>
+    <style id="template_css">{{ css|safe }}</style>
 {% endblock %}
 
 
@@ -17,7 +17,7 @@
         <script src="/static/js/editor-edit.js"></script>
     {% endif %}
     <!-- see above comment I guess -->
-    <script>{{ js|safe }}</script>
+    <script id="template_js">{{ js|safe }}</script>
 {% endblock %}
 
 
@@ -25,9 +25,9 @@
 
 <div class="edit-header">
     <i class="fa fa-bars control-fa"></i>
-    <div class="header-button {% if edit != True %} disabled {% endif %}">Change Page</div>
-    <div class="header-button pull-right {% if edit != True %} disabled {% endif %}">Save</div>
-    <div class="header-button pull-right {% if edit != True %} disabled {% endif %}">Preview</div>
+    <div id="change" class="header-button {% if edit != True %} disabled {% endif %}">Change Page</div>
+    <div id="save" class="header-button pull-right {% if edit != True %} disabled {% endif %}">Save</div>
+    <div id="preview" class="header-button pull-right {% if edit != True %} disabled {% endif %}">Preview</div>
 </div>
 
 
@@ -47,6 +47,6 @@
 
 </div>
 
-<div class="content{% if edit != True %} content-style {% endif %}">{{ html|safe }}</div>
+<div id="template_html" class="content{% if edit != True %} content-style {% endif %}">{{ html|safe }}</div>
 
 {% endblock %}
