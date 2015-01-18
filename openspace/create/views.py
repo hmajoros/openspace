@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint, g, session
+from flask import render_template_string, Blueprint, g, session
 from flask.ext.login import current_user
 
 create = Blueprint('create', __name__, url_prefix='/create')
@@ -9,4 +9,9 @@ def before_request():
 
 @create.route('/')
 def index():
-    return render_template('create.html', title='Create', user=current_user)
+
+    title = "cool" 
+    text = "wow"
+ 
+
+    return render_template_string("{{ title }} is cool! So if {{ text }}", **context)
