@@ -10,7 +10,10 @@
 <div class="cover">
   <div class="fuckingContainer">
   {% if user.is_anonymous() %}
-  <div id="signUpButton">SIGN UP</div>
+  <div class="signUpButton" id="signUpButton" onclick="goToSignUp()">SIGN UP</div>
+  {% endif %}
+  {% if user.is_authenticated() %}
+  <div id="dashBoardButton" class="signUpButton" onclick="goToDashboard()">DASHBOARD</div>
   {% endif %}
   <div class="logo"><img src="/static/img/stroke_logo.png" /></div>
   </div>
