@@ -36,6 +36,7 @@
   height: 64px;
   top: 0;
   background-color: rgba(103, 58, 183, 0.5);
+  z-index: 99999;
 }
 .header .header-nav .header-nav-item {
   display: block;
@@ -62,7 +63,7 @@
 .header .header-nav .header-nav-item.pull-right:hover {
   background-color: rgba(74, 41, 134, 0.8);
 }
-#signUpButton {
+.signUpButton {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -87,11 +88,11 @@
   background-color: rgba(103, 58, 183, 0.7);
   color: white;
 }
-#signUpButton:hover {
+.signUpButton:hover {
   cursor: pointer;
   background-color: rgba(81, 45, 168, 0.7);
 }
-#signUpButton:active {
+.signUpButton:active {
   background-color: rgba(69, 39, 160, 0.7);
 }
 .visible {
@@ -139,6 +140,10 @@
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+.wut {
+  padding-bottom: 50px;
+  background-color: #f0f0f0;
+}
 .alreadyUsed {
   text-align: center;
   line-height: 50px !important;
@@ -151,15 +156,14 @@
   visibility: hidden;
 }
 .randomShitIGuessIDontKnow {
-  margin-top: 50px;
-  height: 600px;
   width: 100%;
   background-color: #512da8;
   overflow: hidden;
 }
 #randomShitContainer {
   width: 100%;
-  max-width: 1000px;
+  padding-bottom: 20px;
+  max-width: 1200px;
   margin: 0 auto;
   margin-top: 20px;
   text-align: center;
@@ -167,16 +171,22 @@
 .randomShitContent {
   overflow: hidden;
   display: inline-block;
-  height: 350px;
+  height: 300px;
   width: 350px;
   margin: 10px;
   vertical-align: top;
-  background-color: black;
 }
 .randomShitLogo {
-  margin-top: 45px;
-  height: 80px;
-  width: 80px;
+  position: relative;
+  margin-top: 15px;
+  height: 100px;
+  width: 100px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 .randomShitLogo img {
   height: 100%;
@@ -187,16 +197,26 @@
   font-size: 20pt;
   font-weight: 300;
   letter-spacing: 5px;
-  color: #979694;
+  color: #f0f0f0;
 }
 .randomShitDescription {
   font-size: 12pt;
-  max-width: 300px;
-  margin-top: 30px;
-  color: #979694;
+  margin-top: 20px;
+  color: #f0f0f0;
+  text-align: center;
 }
 .randomShitDescription a {
   color: black;
+  text-decoration: none;
+}
+.footer {
+  width: 100%;
+  height: 25px;
+  text-align: center;
+  font-size: 12pt;
+  background-color: #f0f0f0;
+}
+.footer a {
   text-decoration: none;
 }
 .upload-drop-zone {

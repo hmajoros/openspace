@@ -8,10 +8,12 @@ $(document).ready(function() {
     renderCoverSize();
 });
 
-var signUpButton = document.getElementById('signUpButton');
-
-signUpButton.onclick = function() {
+function goToSignUp() {
 	window.location.href="/signup/";
+}
+
+function goToDashboard() {
+	window.location.href="/dashboard/";
 }
 
 function renderCoverSize() {
