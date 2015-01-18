@@ -64,7 +64,7 @@
 <div class="row">
     {% for site in sites %}
     <div class="col-md-4">
-        <div class="site"><a href="#">{{ site.p_name }} built with template {{ site.t_name }}</div>
+        <div class="site"><a href="/editor/?page_id={{site.page_id}}">{{ site.p_name }} built with template {{ site.t_name }}</div>
     </div>
     {% endfor %}
 </div>
