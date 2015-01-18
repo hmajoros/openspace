@@ -12,9 +12,9 @@
 }
 
 .cover {
-    position: absolute;
+    position: relative;
     width: 100%;
-    min-height: calc(100vh + -100px);
+    min-height: 400px;
     background-image: url('/static/images/home.jpeg');
     background-size: cover;
 }
@@ -68,8 +68,6 @@
     left: 50%;
     .prefixed(transform, translateX(-50%));
 
-    opacity: 0.7;
-
     text-align: center;
     line-height: 75px;
     font-size: 15pt;
@@ -80,16 +78,16 @@
 
     border-radius: 10px;
 
-    background-color: @primary;
+    background-color: fade(@primary, 70%);
     color: white;
 
     &:hover {
         cursor: pointer;
-        background-color: @secondary;
+        background-color: fade(@secondary, 70%);
     }
 
     &:active {
-        background-color: @tertiary;
+        background-color: fade(@tertiary, 70%);
     }
 }
 

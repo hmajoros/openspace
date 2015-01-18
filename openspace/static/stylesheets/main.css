@@ -18,9 +18,9 @@
   user-select: none;
 }
 .cover {
-  position: absolute;
+  position: relative;
   width: 100%;
-  min-height: calc(0vh);
+  min-height: 400px;
   background-image: url('/static/images/home.jpeg');
   background-size: cover;
 }
@@ -71,7 +71,6 @@
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
-  opacity: 0.7;
   text-align: center;
   line-height: 75px;
   font-size: 15pt;
@@ -79,15 +78,15 @@
   height: 75px;
   width: 250px;
   border-radius: 10px;
-  background-color: #673ab7;
+  background-color: rgba(103, 58, 183, 0.7);
   color: white;
 }
 #signUpButton:hover {
   cursor: pointer;
-  background-color: #512da8;
+  background-color: rgba(81, 45, 168, 0.7);
 }
 #signUpButton:active {
-  background-color: #4527a0;
+  background-color: rgba(69, 39, 160, 0.7);
 }
 .visible {
   visibility: visible !important;
