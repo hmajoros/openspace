@@ -62,7 +62,7 @@
 
 #signUpButton {
     .disableSelection;
-    position: relative;
+    position: absolute;
     top: 60%;
     left: 50%;
     .prefixed(transform, translate(-50%, -50%));
@@ -108,7 +108,7 @@
 }
 
 .logo {
-    position: relative;
+    position: absolute;
     top: 30%;
     height: 100px;
     width: 100px;
@@ -119,6 +119,14 @@
         height: 100%;
         width: 100%;
     }
+}
+
+.fuckingContainer {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    height: 350px;
+    .prefixed(transform, translate(-50%, -50%));
 }
 
 .alreadyUsed {
@@ -132,6 +140,12 @@
     border-radius: 10px;
 
     visibility: hidden;
+}
+
+.footer {
+    height: 600px;
+    width: 100%;
+    background-color: @secondary;
 }
 
 .upload-drop-zone {
