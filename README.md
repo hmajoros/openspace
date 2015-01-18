@@ -1,5 +1,7 @@
 ### OpenSpace ###
 
+1/18/15: Henry Majoros snags the 100th commit by editing this line in the README.md #rekt
+
 ##### Readme file for our mhacks V project. #####
 
 1. Cry
