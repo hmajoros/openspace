@@ -7,13 +7,44 @@
 
 {% block content %}
 
-<div class="cover"></div> <!-- image added in js -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <form action="/dashboard/create_page" method="POST">
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="page_name">Page Name</label>
+                <input type="text" name="page_name" required>
+            </div>
+            <div class="form-group">
+                <label for="template_id">Choose a Template</label>
+                <!-- TODO: limit number input based on a DB query of how many tempaltes we have -->
+                <input type="number" name="template_id" required>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <input type="submit" class="btn btn-primary color-primary">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="cover">
+    {% if user.is_authenticated() %}
+    <div data-toggle="modal" data-target="#myModal" class="main-button">CREATE NEW PAGE</div>
+    {% endif %}
+</div> <!-- image added in js -->
 
 <div class="header">
   <div class="header-nav">
     <div class="header-nav-item"><a href="/">Home</a></div>
     <div class="header-nav-item"><a href="/upload">Upload</a></div>
-    <div class="header-nav-item"><a href="/create">Create</a></div>
     <div class="header-nav-item"><a href="/browse">Browse</a></div>
     {% if user.is_anonymous() %}
     <div class="header-nav-item pull-right"><a href="/signup">Sign Up</a></div>
@@ -33,7 +64,7 @@
 <div class="row">
     {% for site in sites %}
     <div class="col-md-4">
-        <div class="site"><a href="{{ site.href }}">{{ site.name }}</div>
+        <div class="site"><a href="#">{{ site.p_name }} built with template {{ site.t_name }}</div>
     </div>
     {% endfor %}
 </div>
