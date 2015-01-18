@@ -10,7 +10,10 @@
 <div class="cover">
   <div class="fuckingContainer">
   {% if user.is_anonymous() %}
-  <div id="signUpButton">SIGN UP</div>
+  <div class="signUpButton" id="signUpButton" onclick="goToSignUp()">SIGN UP</div>
+  {% endif %}
+  {% if user.is_authenticated() %}
+  <div id="dashBoardButton" class="signUpButton" onclick="goToDashboard()">DASHBOARD</div>
   {% endif %}
   <div class="logo"><img src="/static/img/stroke_logo.png" /></div>
   </div>
@@ -33,8 +36,8 @@
 </div>
 
 <div class="logo"></div>
-<section>
-  <div class="row">
+<section class="wut">
+  <div class="row wut">
   <!-- insert most important content here -->
     <div class="col-md-6 text-justify">
       <h3 class="text-center">What We Do</h3>
@@ -64,14 +67,28 @@
 <div class="randomShitIGuessIDontKnow">
   <div id="randomShitContainer">
     <div class="randomShitContent">
-    asdfasdfasdfas
+      <div class="randomShitLogo"><img src="/static/img/type.png" /></div>
+      <div class="randomShitTitle">JUST TYPE</div>
+      <!-- Spoiler, it's random shit -->
+      <div class="randomShitDescription">You just tell us what you want on your site, and like magic it is there. No coding, no designing, just pick a template and go.</div>
     </div>
     <div class="randomShitContent">
+      <div class="randomShitLogo"><img src="/static/img/code.png" /></div>
+      <div class="randomShitTitle">NO CODING</div>
+      <!-- Spoiler, it's random shit -->
+      <div class="randomShitDescription">No coding experience required. Don't know how to code? Don't worry, we have you covered. You never have to see HTML.</div>
     </div>
     <div class="randomShitContent">
+      <div class="randomShitLogo"><img src="/static/img/design.png" /></div>
+      <div class="randomShitTitle">GREAT DESIGN</div>
+      <!-- Spoiler, it's random shit -->
+      <div class="randomShitDescription">You don't need to be a great designer to know what looks good or like crap. Pick any template you please, they all look great.</div>
     </div>
   </div>
 </div>
+</section>
+<section>
+<div class="footer">© OPEN SPACE, FORK US ON <a href="http://www.github.com/hmajoros/openspace" target="_blank">GITHUB</a></div>
 </section>
 {% endblock %}
 
