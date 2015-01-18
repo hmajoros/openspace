@@ -38,10 +38,17 @@ def getSitesFor(user_id):
 
     row = cursor.fetchone()
     while row is not None:
-        site.href = row[1]
-        site.name = row[0]
+        site = Site(row[1], row[0])
         sites.append(site)
         row = cursor.fetchone()
-
     return sites
+
+class Site(object):
+    name = ""
+    href = ""
+    
+    def __init__(self, href, name):
+        self.href = href
+        self.name = name
+
 
