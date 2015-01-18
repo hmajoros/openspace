@@ -8,6 +8,7 @@
 * {
     font-family: 'Open Sans', sans-serif;
     overflow-x: hidden;
+    .disableSelection;
 }
 
 .cover {
@@ -73,16 +74,16 @@
 
     border-radius: 10px;
 
-    background-color: #4749FF;
+    background-color: @primary;
     color: white;
 
     &:hover {
         cursor: pointer;
-        background-color: #3636C8;
+        background-color: @secondary;
     }
 
     &:active {
-        background-color: #292A9B;
+        background-color: @tertiary;
     }
 }
 
@@ -115,6 +116,10 @@
         height: 100%;
         width: 100%;
     }
+}
+
+h3 {
+    line-height: 50px;
 }
 
 .alreadyUsed {
