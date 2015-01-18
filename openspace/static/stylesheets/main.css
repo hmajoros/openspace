@@ -62,7 +62,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  position: relative;
+  position: absolute;
   top: 60%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -106,7 +106,7 @@
   padding: 32px;
 }
 .logo {
-  position: relative;
+  position: absolute;
   top: 30%;
   height: 100px;
   width: 100px;
@@ -121,6 +121,17 @@
   height: 100%;
   width: 100%;
 }
+.fuckingContainer {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  height: 350px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
 h3 {
   line-height: 50px;
 }
@@ -134,6 +145,11 @@ h3 {
   color: white;
   border-radius: 10px;
   visibility: hidden;
+}
+.footer {
+  height: 600px;
+  width: 100%;
+  background-color: #673ab7;
 }
 .upload-drop-zone {
   height: 200px;
