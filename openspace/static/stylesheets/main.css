@@ -10,12 +10,7 @@
 * {
   font-family: 'Open Sans', sans-serif;
   overflow-x: hidden;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  line-height: 1.428 !important;
 }
 .cover {
   width: 100%;
@@ -43,7 +38,7 @@
   padding: 24px;
   color: white;
   font-size: 18px;
-  line-height: 64px;
+  line-height: 64px !important;
   text-decoration: none;
 }
 .header .header-nav .header-nav-item.pull-right {
@@ -71,7 +66,7 @@
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
-  line-height: 75px;
+  line-height: 75px !important;
   font-size: 15pt;
   letter-spacing: 5px;
   height: 75px;
@@ -132,12 +127,9 @@
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-h3 {
-  line-height: 50px;
-}
 .alreadyUsed {
   text-align: center;
-  line-height: 50px;
+  line-height: 50px !important;
   font-size: 15pt;
   width: 300px;
   height: 0px;
@@ -149,7 +141,7 @@ h3 {
 .footer {
   height: 600px;
   width: 100%;
-  background-color: #673ab7;
+  background-color: #512da8;
 }
 .upload-drop-zone {
   height: 200px;
@@ -160,7 +152,7 @@ h3 {
   color: #ccc;
   border-style: dashed;
   border-color: #ccc;
-  line-height: 200px;
+  line-height: 200px !important;
   text-align: center;
 }
 .upload-drop-zone.drop {
