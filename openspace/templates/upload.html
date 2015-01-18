@@ -1,37 +1,46 @@
 {% extends "base.html" %}
 
 {% block stylesheets %}
-<!-- <link href="/static/stylesheets/main.css" rel="stylesheet"> -->
+<link href="/static/stylesheets/upload.css" rel="stylesheet">
+<link href="/static/codemirror/lib/codemirror.css" rel="stylesheet">
+<link href="/static/codemirror/theme/solarized.css" rel="stylesheet">
+<link href="/static/codemirror/theme/tomorrow-night-bright.css" rel="stylesheet">
+<script src="/static/codemirror/lib/codemirror.js"></script>
+<script src="/static/codemirror/mode/javascript/javascript.js"></script>
+<script src="/static/codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="/static/codemirror/mode/xml/xml.js"></script>
+<script src="/static/codemirror/mode/css/css.js"></script>
 {% endblock %}
 
 {% block content %}
 
-<div class="container">
-      <div class="panel panel-default">
-        <div class="panel-heading"><strong>Upload Files</strong> </div>
-        <div class="panel-body">
+<div>
+      <div>
+        <div class="title"><strong>Upload Template</strong></div>
+        
+        <div>
 
-          <!-- Standar Form -->
-          <h4>Template Uploader</h4>
+          <!-- Standard Form, ehhhhhhh fuck this shit -->
           <form action="/upload/template" method="post">
-            <div class="form-inline">
-              <div class="form-group">
-                <label for="html">Template HTML</label>
-                <textarea name="html" required></textarea>
-              </div>
-              <div class="form-group">
-                <label for="css">Template CSS</label>
-                <textarea name="css"></textarea>
-              </div>
-              <div class="form-group">
-                <label for="js">Template JavaScript</label>
-                <textarea name="js"></textarea>
-              </div>
-              <div class="form-group">
+            <div>
+              <div class="random">
                 <label for="template_name">Template Name</label>
                 <input type="text" name="template_name" required>
+                <div class="random">Paste your HTML, CSS, and JavaScript Code below, and edit if necassary</div>
               </div>
-              <button type="submit" class="btn btn-sm btn-primary">Upload files</button>
+              <div>
+                <label for="html">HTML Editor</label>
+                <textarea name="html" required id="html"></textarea>
+              </div>
+              <div>
+                <label for="css">CSS Editor</label>
+                <textarea name="css" id="css"></textarea>
+              </div>
+              <div>
+                <label for="js">JavaScript Editor</label>
+                <textarea name="js" id="js"></textarea>
+              </div>
+              <button type="submit" class="random thisfuckingbuttonthough">Upload files</button>
             </div>
           </form>
 
@@ -42,5 +51,28 @@
     {% endblock %}
 
 {% block js %}
-<script src="/static/js/upload.js"></script>
+<script>
+
+var htmlTextArea = document.getElementById("html");
+var myHtmlEditor = CodeMirror(function(elt) {
+  htmlTextArea.parentNode.replaceChild(elt, htmlTextArea);
+}, {value: htmlTextArea.value, mode: "htmlmixed", theme: "tomorrow-night-bright", indentWithTabs: true, indentUnit: 4, showCursorWhenSelecting: true, cursorHeight: 1, styleActiveLine: true, lineNumbers: true, matchBrackets: true});
+
+var cssTextArea = document.getElementById("css");
+var myCssEditor = CodeMirror(function(elt) {
+  cssTextArea.parentNode.replaceChild(elt, cssTextArea);
+}, {value: htmlTextArea.value, mode: "css", theme: "tomorrow-night-bright", indentWithTabs: true, indentUnit: 4, showCursorWhenSelecting: true, cursorHeight: 1, styleActiveLine: true, lineNumbers: true, matchBrackets: true});
+
+var jsTextArea = document.getElementById("js");
+var myJsEditor = CodeMirror(function(elt) {
+  jsTextArea.parentNode.replaceChild(elt, jsTextArea);
+}, {value: htmlTextArea.value, mode: "javascript", theme: "tomorrow-night-bright", indentWithTabs: true, indentUnit: 4, showCursorWhenSelecting: true, cursorHeight: 1, styleActiveLine: true, lineNumbers: true, matchBrackets: true});
+
+// Refresh CodeMirror
+$('.CodeMirror').each(function(i, el){
+    el.CodeMirror.refresh();
+});
+
+
+</script>
 {% endblock %}

@@ -1,0 +1,60 @@
+@import "opts.less";
+@import "funcs.less";
+
+body {
+	padding-bottom: 20px;
+}
+
+.title {
+	text-align: center;
+	background-color: fade(@primary, 80%);
+	color: white;
+	height: 60px;
+	line-height: 60px;
+	font-size: 20pt;
+
+	position: fixed;
+	width: 100%;
+}
+
+.random {
+	text-align: center;
+}
+
+.mymarginclass {
+	margin-top: 65px;
+}
+
+.thisfuckingbuttonthough {
+	position: relative;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-rigth: auto;
+
+	height: 60px;
+	width: 200px;
+
+	color: white;
+	background-color: @primary;
+
+	border-radius: 10px;
+
+	border: none;
+
+	left: 50% !important;
+	.prefixed(transform, translateX(-50%));
+
+	&:hover {
+		background-color: @secondary;
+	}
+
+	&:active {
+		background-color: @tertiary;
+	}
+}
+
+label {
+	margin-top: 60px;
+	font-size: 15pt;
+	margin-left: 20px;
+}
