@@ -152,14 +152,14 @@
 }
 .randomShitIGuessIDontKnow {
   margin-top: 50px;
-  height: 600px;
   width: 100%;
   background-color: #512da8;
   overflow: hidden;
 }
 #randomShitContainer {
   width: 100%;
-  max-width: 1000px;
+  padding-bottom: 20px;
+  max-width: 1200px;
   margin: 0 auto;
   margin-top: 20px;
   text-align: center;
@@ -171,12 +171,18 @@
   width: 350px;
   margin: 10px;
   vertical-align: top;
-  background-color: black;
 }
 .randomShitLogo {
-  margin-top: 45px;
-  height: 80px;
-  width: 80px;
+  position: relative;
+  margin-top: 15px;
+  height: 175px;
+  width: 175px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
 }
 .randomShitLogo img {
   height: 100%;
@@ -187,13 +193,13 @@
   font-size: 20pt;
   font-weight: 300;
   letter-spacing: 5px;
-  color: #979694;
+  color: #f0f0f0;
 }
 .randomShitDescription {
   font-size: 12pt;
-  max-width: 300px;
-  margin-top: 30px;
-  color: #979694;
+  margin-top: 20px;
+  color: #f0f0f0;
+  text-align: center;
 }
 .randomShitDescription a {
   color: black;
