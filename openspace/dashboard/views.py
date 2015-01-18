@@ -51,7 +51,7 @@ def getSitesFor(user_id):
 
     conn = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database=db_name)
     cursor = conn.cursor()
-    query = ("SELECT t.template_name, p.page_name FROM templates t, pages p, users u "
+    query = ("SELECT t.template_name, p.page_name, p.page_id FROM templates t, pages p, users u "
              "WHERE u.user_id = %(user_id)s "
              "AND u.user_id = p.user_id "
              "AND p.template_id = t.template_id")
@@ -62,7 +62,7 @@ def getSitesFor(user_id):
 
     row = cursor.fetchone()
     while row is not None:
-        site = Site(row[0], row[1])
+        site = Site(row[0], row[1], row[2])
         sites.append(site)
         row = cursor.fetchone()
     return sites
@@ -70,9 +70,11 @@ def getSitesFor(user_id):
 class Site(object):
     t_name = ""
     p_name = ""
-    
-    def __init__(self, t_name, p_name):
+    page_id = ""
+
+    def __init__(self, t_name, p_name, page_id):
         self.t_name = t_name
         self.p_name = p_name
+        self.page_id = page_id
 
 
