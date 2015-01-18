@@ -31,15 +31,11 @@
 </div>
 
 <div class="row">
+    {% for site in sites %}
     <div class="col-md-4">
-        <div class="site"></div>
+        <div class="site"><a href="{{ site.href }}">{{ site.name }}</div>
     </div>
-    <div class="col-md-4">
-        <div class="site"></div>
-    </div>
-    <div class="col-md-4">
-        <div class="site"></div>
-    </div>
+    {% endfor %}
 </div>
 
 {% endblock %}
