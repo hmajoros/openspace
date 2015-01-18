@@ -1,0 +1,56 @@
+.disableSelection {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+body {
+  padding-bottom: 20px;
+}
+.title {
+  text-align: center;
+  background-color: rgba(103, 58, 183, 0.8);
+  color: white;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20pt;
+  position: fixed;
+  width: 100%;
+}
+.random {
+  text-align: center;
+}
+.mymarginclass {
+  margin-top: 65px;
+}
+.thisfuckingbuttonthough {
+  position: relative;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-rigth: auto;
+  height: 60px;
+  width: 200px;
+  color: white;
+  background-color: #673ab7;
+  border-radius: 10px;
+  border: none;
+  left: 50% !important;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+.thisfuckingbuttonthough:hover {
+  background-color: #512da8;
+}
+.thisfuckingbuttonthough:active {
+  background-color: #4527a0;
+}
+label {
+  margin-top: 60px;
+  font-size: 15pt;
+  margin-left: 20px;
+}
