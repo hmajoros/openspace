@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/stylesheets/editor.css">
+
+<!-- once again probably a bad way but i cant think of anything else -->
+<style>{{ css|safe }}</style>
+
+{% endblock %}
+
+{% block js %}
+<script src="/static/js/editor.js"></script>
+
+<!-- see above comment I guess -->
+<script>{{ js|safe }}</script>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="edit-header">
+    <div class="header-button {% if edit != True %} disabled {% endif %}">Change Page</div>
+    <div class="header-button pull-right {% if edit != True %} disabled {% endif %}">Save</div>
+    <div class="header-button pull-right {% if edit != True %} disabled {% endif %}">Preview</div>
+</div>
+
+
+<div class="button-choose{% if edit == True %} hide {% endif %}">
+
+    {% if pages|length > 0 %}
+        Select a page to begin editing<br>
+        <select class="page_picker" name="page_picker">
+            <option value="default">Choose Page...</option>
+            {% for page in pages %}
+                <option value="{{ page.page_id }}">{{ page.page_name }}</option>
+            {% endfor %}
+        </select>
+    {% else %}
+        You do not have any pages. <br>Go <a href="/dashboard" class="color-primary">create some &raquo;</a>
+    {% endif %}
+
+</div>
+<div class="content">{{ html|safe }}</div>
+
+{% endblock %}

@@ -19,11 +19,11 @@ cursor = cnx.cursor()
 #    ") ENGINE=InnoDB")
 
 # createVariablesTable = (
-#     "CREATE TABLE variables ("
-#     "  page_id INT NOT NULL REFERENCES pages,"
+#     "CREATE TABLE template_variables ("
+#     "  template_id INT NOT NULL AUTO_INCREMENT REFERENCES templates,"
 #     "  var_name VARCHAR(255) NOT NULL,"
 #     "  var_content VARCHAR(255) NOT NULL,"
-#     "  PRIMARY KEY(page_id, var_name, var_content)"
+#     "  PRIMARY KEY(template_id, var_name, var_content)"
 #     ") ENGINE=InnoDB")
 
 # cursor.execute(createTemplatesTable)
@@ -43,13 +43,12 @@ cursor = cnx.cursor()
 # values = (1, 1, 1)
 # cursor.execute(query, values)
 # cnx.commit()
-
-query = ("ALTER TABLE pages MODIFY COLUMN page_id INT NOT NULL AUTO_INCREMENT")
-# query = ("TRUN pages")
+query = ("SELECT template_name FROM templates")
+# query = ("ALTER TABLE templates ORDER BY template_id, template_name, template_html, template_css, template_js, author_id")
 cursor.execute(query)
-cnx.commit()
-# row = cursor.fetchall()
-# print row
+# cnx.commit()
+row = cursor.fetchall()
+print row
 
 cursor.close()
 cnx.close()
