@@ -1,4 +1,5 @@
 @import 'opts.less';
+@import 'funcs.less';
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
 
 * {
@@ -6,6 +7,10 @@
     overflow-x: hidden;
     // .disableSelection;
     line-height: 1.428 !important;
+}
+
+.color-primary {
+    background-color: @primary;
 }
 
 .cover {
@@ -54,6 +59,36 @@
                 }
             }
         }
+    }
+}
+
+.main-button {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    .prefixed(transform, translate(-50%, -50%));
+
+    text-align: center;
+    line-height: 50px !important;
+    font-size: 15pt;
+    letter-spacing: 5px;
+
+    // height: 75px;
+    padding: 10px 20px;
+
+    border-radius: 10px;
+    border: none;
+
+    background-color: fade(@primary, 70%);
+    color: white;
+
+    &:hover {
+        cursor: pointer;
+        background-color: fade(@secondary, 70%);
+    }
+
+    &:active {
+        background-color: fade(@tertiary, 70%);
     }
 }
 

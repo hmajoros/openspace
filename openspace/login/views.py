@@ -53,17 +53,16 @@ def auth():
         cursor.execute(query, { 'user_name': request.form['username'] })
         row = cursor.fetchone()
 
+        # FUCK THIS PART OF CODE IN PARTICULAR
+        # THIS CODE IS BAD AND YOU SHOULD FEEL BAD
+        # HASHTAG FUCK FLASK AUTH
+
         if row is not None:
             u = User(row[0], row[1], row[2], row[3], row[4], row[5])
             if check_password_hash(row[2], request.form['password']):
-                # log us in
-                # print "print before"
-
-                # print u.is_authenticated()
 
                 login_user(u)
 
-                # print "we're logged in!"
                 return redirect(url_for('home.index'))
 
         cursor.close()

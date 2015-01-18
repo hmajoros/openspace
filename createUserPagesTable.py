@@ -44,10 +44,12 @@ cursor = cnx.cursor()
 # cursor.execute(query, values)
 # cnx.commit()
 
-query = ("SELECT * FROM pages")
+query = ("ALTER TABLE pages MODIFY COLUMN page_id INT NOT NULL AUTO_INCREMENT")
+# query = ("TRUN pages")
 cursor.execute(query)
-row = cursor.fetchall()
-print row
+cnx.commit()
+# row = cursor.fetchall()
+# print row
 
 cursor.close()
 cnx.close()

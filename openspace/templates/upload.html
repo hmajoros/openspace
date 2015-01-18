@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block stylesheets %}
-<link href="/static/stylesheets/main.css" rel="stylesheet">
+<!-- <link href="/static/stylesheets/main.css" rel="stylesheet"> -->
 {% endblock %}
 
 {% block content %}
@@ -12,17 +12,18 @@
         <div class="panel-body">
 
           <!-- Standar Form -->
-          <h4>Select files from your computer</h4>
-          <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+          <h4>Template Uploader</h4>
+          <form action="/upload/template" method="post">
             <div class="form-inline">
               <div class="form-group">
-                <input type="file" name="files[]" id="js-upload-files" required>
+                <label for="content">Paste Template HTML/Jinja</label>
+                <textarea name="content" required></textarea>
               </div>
               <div class="form-group">
                 <label for="template_name">Template Name</label>
                 <input type="text" name="template_name" required>
               </div>
-              <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+              <button type="submit" class="btn btn-sm btn-primary">Upload files</button>
             </div>
           </form>
 
