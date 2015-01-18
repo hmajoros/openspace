@@ -88,6 +88,7 @@
   height: 300px;
   border-radius: 20px;
   text-align: center;
+  margin-bottom: 20px;
 }
 .site:hover {
   background-color: #512da8;
