@@ -30,10 +30,6 @@ app.register_blueprint(logout)
 from openspace.signup.views import signup
 app.register_blueprint(signup)
 
-# setup create page 
-from openspace.create.views import create
-app.register_blueprint(create)
-
 # setup upload blueprint
 from openspace.upload.views import upload
 app.register_blueprint(upload)
@@ -41,3 +37,7 @@ app.register_blueprint(upload)
 # setup dashboard blueprint
 from openspace.dashboard.views import dashboard
 app.register_blueprint(dashboard)
+
+# setup editor blueprint
+from openspace.editor.views import editor
+app.register_blueprint(editor)

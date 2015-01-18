@@ -28,8 +28,8 @@ def template():
         conn = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database=db_name)
         cursor = conn.cursor()
 
-        query = ("INSERT INTO templates (template_content, template_name, author_id) VALUES (%s, %s, %s)")
-        values = (request.form['content'], request.form['template_name'], current_user.get_id())
+        query = ("INSERT INTO templates (template_html, template_css, template_js, template_name, author_id) VALUES (%s, %s, %s, %s, %s)")
+        values = (request.form['html'], request.form['css'], request.form['js'], request.form['template_name'], current_user.get_id())
         cursor.execute(query, values)
         conn.commit()
 
