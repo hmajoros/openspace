@@ -25,6 +25,7 @@
     <div class="header-nav-item pull-right"><a href="/login">Login</a></div>
     {% endif %}
     {% if user.is_authenticated() %}
+    <div class="header-nav-item pull-right"><a href="/dashboard">Dashboard</a></div>
     <div class="header-nav-item pull-right"><a href="/logout">Logout</a></div>
     {% endif %}
   </div>

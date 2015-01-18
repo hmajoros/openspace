@@ -18,7 +18,6 @@
   user-select: none;
 }
 .cover {
-  position: relative;
   width: 100%;
   min-height: 400px;
   background-image: url('/static/images/home.jpeg');

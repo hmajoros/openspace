@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="/static/stylesheets/dashboard.css">
+{% endblock %}
+
+
+{% block content %}
+
+<div class="cover"></div> <!-- image added in js -->
+
+<div class="header">
+  <div class="header-nav">
+    <div class="header-nav-item"><a href="/">Home</a></div>
+    <div class="header-nav-item"><a href="/upload">Upload</a></div>
+    <div class="header-nav-item"><a href="/create">Create</a></div>
+    <div class="header-nav-item"><a href="/browse">Browse</a></div>
+    {% if user.is_anonymous() %}
+    <div class="header-nav-item pull-right"><a href="/signup">Sign Up</a></div>
+    <div class="header-nav-item pull-right"><a href="/login">Login</a></div>
+    {% endif %}
+    {% if user.is_authenticated() %}
+    <div class="header-nav-item pull-right"><a href="/dashboard">Dashboard</a></div>
+    <div class="header-nav-item pull-right"><a href="/logout">Logout</a></div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
+
+
+{% block js %}
+<script src="/static/js/dashboard.js"></script>
+{% endblock %}
