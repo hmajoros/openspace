@@ -35,7 +35,7 @@ def before_request():
 
 @login.route('/', methods=['GET', 'POST'])
 def index():
-    return render_template('login.html', title='login', user=current_user)
+    return render_template('login.html', title='Login', user=current_user)
 
 @login.route('/auth', methods=['GET', 'POST'])
 def auth():
