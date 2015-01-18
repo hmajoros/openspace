@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+<link href="/static/stylesheets/main.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+      <div class="panel panel-default">
+        <div class="panel-heading"><strong>Upload Files</strong> </div>
+        <div class="panel-body">
+
+          <!-- Standar Form -->
+          <h4>Select files from your computer</h4>
+          <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+            <div class="form-inline">
+              <div class="form-group">
+                <input type="file" name="files[]" id="js-upload-files" multiple>
+              </div>
+              <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div> <!-- /container -->
+
+    {% endblock %}
+
+{% block js %}
+<script src="/static/js/upload.js"></script>
+{% endblock %}
