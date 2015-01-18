@@ -64,7 +64,7 @@ def auth():
                 login_user(u)
 
                 # print "we're logged in!"
-                return redirect(url_for('home.index'))
+                return redirect(url_for('dashboard.index'))
 
         cursor.close()
         conn.close()
