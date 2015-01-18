@@ -3,6 +3,8 @@ from flask.ext.login import LoginManager
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+# literally serves no purpose ?????
 app.secret_key = "420blazeityoloswagfuck"
 
 db = SQLAlchemy(app)
@@ -28,10 +30,14 @@ app.register_blueprint(logout)
 from openspace.signup.views import signup
 app.register_blueprint(signup)
 
-# create page
+# setup create page 
 from openspace.create.views import create
 app.register_blueprint(create)
 
-# setup upload blueprint# create page
+# setup upload blueprint
 from openspace.upload.views import upload
 app.register_blueprint(upload)
+
+# setup dashboard blueprint
+from openspace.dashboard.views import dashboard
+app.register_blueprint(dashboard)

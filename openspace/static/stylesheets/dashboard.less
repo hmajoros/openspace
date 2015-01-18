@@ -1,0 +1,54 @@
+@import 'opts.less';
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700);
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+    // .disableSelection;
+}
+
+.cover {
+    width: 100%;
+    min-height: 400px;
+    background-image: url('/static/images/dashboard.png');
+    background-size: cover;
+    background-position: 0 -200px;
+    background-repeat: no-repeat;
+}
+
+.header {
+    position: absolute;
+    width: 100%;
+    height: 64px;
+    top: 0;
+    background-color: rgba(0, 0, 0, .1);
+
+    & .header-nav {
+
+
+        & .header-nav-item {
+            display: block;
+            float: left;
+            overflow: hidden;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, .20);
+            }
+             
+            & a {
+                padding: 24px;
+                color: #2f2f2f;
+                font-size: 18px;
+                line-height: 64px;
+                text-decoration: none;
+            }
+
+            &.pull-right {
+                background-color: rgba(0,0,0, .3);
+                & a {
+                    color: white;
+                }
+            }
+        }
+    }
+}
