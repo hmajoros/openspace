@@ -15,3 +15,7 @@
 
 ### HOW TO RUN ###
 ```foreman run python run.py```
+
+### ClosedSpace ###
+
+This space reserved.
