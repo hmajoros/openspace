@@ -19,13 +19,14 @@
         <div class="title"><strong>Upload Template</strong></div>
         
         <div>
-
+<!-- action=\"/upload/template\" --> 
+<!-- for="template_name" -->
           <!-- Standard Form, ehhhhhhh fuck this shit -->
-          <form action="/upload/template" method="post">
+          <form onsubmit="upload()">
             <div>
               <div class="random">
-                <label for="template_name">Template Name</label>
-                <input type="text" name="template_name" required>
+                <label>Template Name</label>
+                <input type="text" name="template_name" id="template_name" required>
                 <div class="random">Paste your HTML, CSS, and JavaScript Code below, and edit if necassary</div>
               </div>
               <div>
@@ -56,7 +57,7 @@
 var htmlTextArea = document.getElementById("html");
 var myHtmlEditor = CodeMirror(function(elt) {
   htmlTextArea.parentNode.replaceChild(elt, htmlTextArea);
-}, {value: htmlTextArea.value, mode: "htmlmixed", theme: "tomorrow-night-bright", indentWithTabs: true, indentUnit: 4, showCursorWhenSelecting: true, cursorHeight: 1, styleActiveLine: true, lineNumbers: true, matchBrackets: true});
+}, {value: htmlTextArea.value, mode: "htmlmixed", theme: "tomorrow-night-bright", indentWithTabs: true, indentUnit: 4, showCursorWhenSelecting: true, cursorHeight: 1, styleActiveLine: true, lineNumbers: true, matchBrackets: true, name: "html"});
 
 var cssTextArea = document.getElementById("css");
 var myCssEditor = CodeMirror(function(elt) {
@@ -73,11 +74,27 @@ $('.CodeMirror').each(function(i, el){
     el.CodeMirror.refresh();
 });
 
-var $areas = $('textarea');
-$areas[0].attr("name", "html");
-$areas[1].attr('name', 'css');
-$areas[2].attr('name', 'js');
+function upload() {
+  htmlTextArea.value = myHtmlEditor.getValue();
+  cssTextArea.value = myCssEditor.getValue();
+  jsTextArea.value = myJsEditor.getValue();
 
+  var html = myHtmlEditor.getValue();
+  var css = myCssEditor.getValue();
+  var js = myJsEditor.getValue();
+  var temp_name = $("#template_name").val();
+
+  $.ajax({
+    type: 'POST',
+    url: '/upload/template',
+    data: {
+      html: html,
+      css: css,
+      js: js,
+      template_name: temp_name
+    }
+  });
+}
 
 
 </script>
