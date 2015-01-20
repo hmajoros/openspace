@@ -27,6 +27,7 @@
     }
 
     function saveToDB() {
+        console.warn('asdioasjodisa');
         var css = $('template_css').text(),
             js = $('template_js').text(),
             html = $('template_html').text();

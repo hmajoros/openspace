@@ -22,10 +22,10 @@ def index():
 
         conn = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database=db_name)
         cursor = conn.cursor()
-        query = ("SELECT template_html, template_css, template_js "
+        query = ("SELECT t.template_html, t.template_css, t.template_js "
                  "FROM templates t, pages p "
-                 "WHERE p.page_id = %(page_id)s "
-                 "AND t.template_id = p.template_id")
+                 "WHERE page_id = %(page_id)s "
+                 "AND p.template_id = t.template_id")
         
         cursor.execute(query, { 'page_id' : request.args.get('page_id') })
         row = cursor.fetchone()
@@ -53,9 +53,12 @@ def save():
 
         conn = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database=db_name)
         cursor = conn.cursor()
-        query = ("UPDATE templates t, pages p "
-                 "SET template_html = %(html)s, template_css = %(css)s, template_js = %(js)s "
-                 "WHERE p.page_id = %(page_id)s")
+        # query1 = ("SELECT ")
+
+
+        query1 = ("UPDATE pages"
+                  "SET template_html = %(html)s, template_css = %(css)s, template_js = %(js)s "
+                  "WHERE page_id = %(page_id)s")
 
         cursor.execute(query, { 'html' : request.form['html'], 'css' : request.form['css'], 
                                 'js' : request.form['js'], 'page_id' : request.form['page_id'] })
