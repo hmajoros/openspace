@@ -7,6 +7,8 @@ design/*
 .sass-cache
 *.swp
 
+createUserPagesTable.py
+
 .env
 
 # Byte-compiled / optimized / DLL files
